@@ -74,7 +74,7 @@ namespace Project2015To2017.Migrate2017.Transforms
 			}
 			else
 			{
-				var referencedItems = removeQueue
+				var referencedItems = removeQueue.Union(keepItems)
 					.Where(x => x.Name.LocalName == "Compile")
 					.Select(x => x.Attribute("Update")?.Value)
 					.Where(x => !string.IsNullOrEmpty(x))
